@@ -34,7 +34,7 @@ let idx = lunr(function() {
   this.field('body')
 })
 
-contents.map(content => idx.add(content))
+const postContents = contents.map(content => idx.add(content))
 
 // get the Lunr instance(use locally)
 const lunrCn = lunr.init(idx, postContents)
