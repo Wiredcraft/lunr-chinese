@@ -1,6 +1,6 @@
 {
   "name": "lunr-chinese",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Lunr with chinese support, do words segment with nodejieba locally.",
   "main": "index.js",
   "scripts": {
@@ -11,8 +11,20 @@
     "lunr",
     "chinese"
   ],
-  "author": "ole3021 (oliver.wang)",
+  "author": {
+    "name": "Wiredcraft",
+    "email": "info@wiredcraft.com",
+    "url": "https://github.com/Wiredcraft"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wiredcraft/lunr-chinese"
+  },
+  "bugs": {
+    "url": "https://github.com/Wiredcraft/lunr-chinese/issues"
+  },
+  "homepage": "https://github.com/Wiredcraft/lunr-chinese",
   "dependencies": {
     "lunr": "0.7.2",
     "nodejieba": "^2.2.5"
