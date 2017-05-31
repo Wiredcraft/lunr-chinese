@@ -1,0 +1,25 @@
+{
+  "name": "lunr-chinese",
+  "version": "1.0.1",
+  "description": "Lunr with chinese support, do words segment with nodejieba locally.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "test": "ava"
+  },
+  "keywords": [
+    "lunr",
+    "chinese"
+  ],
+  "author": "ole3021 (oliver.wang)",
+  "license": "MIT",
+  "dependencies": {
+    "lunr": "0.7.2",
+    "nodejieba": "^2.2.5"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "webpack": "^2.6.1"
+  }
+}
