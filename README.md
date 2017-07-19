@@ -24,7 +24,7 @@ For front-end use the build file `lunr-chinese`, `lunr-chinese.min.js` in the pr
 
 ## Usage
 ```JavaScript
-const lunr = require('lunr-chinese')
+const lunr = require('lunr-chinese')()
 
 let idx = lunr(function() {
   this.ref('id')
@@ -54,3 +54,23 @@ var chineseLunr = lunr.init(lunrCnIndexs)
 
 chineseLunr.search('例子')
 ```
+
+To use custom dictionary like this
+```
+const lunr = require('lunr-chinese')({
+  dict: nodejieba.DEFAULT_DICT,
+  hmmDict: nodejieba.DEFAULT_HMM_DICT,
+  userDict: './test/testdata/userdict.utf8',
+  idfDict: nodejieba.DEFAULT_IDF_DICT,
+  stopWordDict: nodejieba.DEFAULT_STOP_WORD_DICT
+})
+```
+
+an example of the custom doc file
+```
+抹茶 n
+星冰乐 n
+拿铁 n
+```
+
+for more details check [CppJieba字典](https://github.com/yanyiwu/cppjieba/tree/master/dict)
