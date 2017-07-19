@@ -1,6 +1,6 @@
 const test = require('ava')
 const fs = require('fs')
-const lunr = require('../index')
+const lunr = require('../index')()
 const lunrChinese = require('../lunr-chinese')
 const lunrChineseMin = require('../lunr-chinese.min')
 

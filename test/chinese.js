@@ -1,6 +1,7 @@
 const test = require('ava')
 const fs = require('fs')
-const lunr = require('../index')
+const path = require('path')
+const lunr = require('../index')()
 const lunrChinese = require('../lunr-chinese')
 const lunrChineseMin = require('../lunr-chinese.min')
 
@@ -38,6 +39,8 @@ const tempData = [
     description: 'MobX 是一个经过测试的库，它通过透明的函数响应式编程(transparently applying functional reactive programming - TFRP)使得状态管理变得简单和可扩展。MobX背后的哲学很简单:\n 任何源自应用状态的东西都应该自动地获得。\n 其中包括UI、数据序列化、服务器通讯，等等。'
   }
 ]
+
+const segmentWords = ['抹茶星冰乐®', '抹茶拿铁（热/冷）', '抹茶红豆芝士蛋糕']
 
 const idxConfig = lunr(function () {
   this.ref('id')
@@ -207,4 +210,34 @@ test.serial.cb('read generated index file init with min version', t => {
     t.is(frameworkResult[0].ref, 2)
     t.end()
   })
+})
+
+test('special segment word disable demo', t => {
+  t.plan(7)
+
+  const result = segmentWords.map(word => lunr.tokenizer(word))
+  t.is(result[0][0], '抹')
+  t.is(result[0][1], '茶星')
+  t.is(result[0][2], '冰乐')
+  t.is(result[1][0], '抹')
+  t.is(result[1][1], '茶拿铁')
+  t.is(result[2][0], '抹')
+  t.is(result[2][1], '茶')
+})
+
+test('special segment word enable demo', t => {
+  t.plan(8)
+  const customLunr = require('../index')({
+    userDict: path.join(__dirname, 'userdict.utf8')
+  })
+
+  const customResult = segmentWords.map(word => customLunr.tokenizer(word))
+  t.is(customResult[0][0], '抹茶')
+  t.is(customResult[0][1], '星冰乐')
+  t.is(customResult[1][0], '抹茶')
+  t.is(customResult[1][1], '拿铁')
+  t.is(customResult[2][0], '抹茶')
+  t.is(customResult[2][1], '红豆')
+  t.is(customResult[2][2], '芝士')
+  t.is(customResult[2][3], '蛋糕')
 })

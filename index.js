@@ -61,4 +61,7 @@ lunr.init = (idx, data, path) => {
   }
 }
 
-module.exports = lunr
+module.exports = config => {
+  if (config) segment.load(config)
+  return lunr
+}
