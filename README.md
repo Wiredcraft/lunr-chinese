@@ -4,6 +4,8 @@ Lunr addon, do words segment with nodejieba locally.
 ## Description
 Build based on [lunr v0.72](https://github.com/olivernn/lunr.js) and [nodejieba](https://github.com/yanyiwu/nodejieba), add chinese tokenize and search available to lunr.
 
+> The lib not use the lunr v2+ is for the lunr v2+ changes the tokenize method mainly, and which is an improve of the performance for English only, not suitable for Chinese. 
+
 new method
 `lunr.init(idx, data, path)`
 
