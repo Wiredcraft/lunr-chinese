@@ -1,16 +1,14 @@
 {
   "name": "lunr-chinese",
   "version": "1.1.0",
-  "description": "Lunr with chinese support, do words segment with nodejieba locally.",
+  "description":
+    "Lunr with chinese support, do words segment with nodejieba locally.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "test": "ava"
   },
-  "keywords": [
-    "lunr",
-    "chinese"
-  ],
+  "keywords": ["lunr", "chinese"],
   "author": {
     "name": "Wiredcraft",
     "email": "info@wiredcraft.com",
@@ -33,5 +31,9 @@
     "ava": "^0.19.1",
     "uglifyjs-webpack-plugin": "^0.4.3",
     "webpack": "^2.6.1"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "always"
   }
 }
