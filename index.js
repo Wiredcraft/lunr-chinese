@@ -44,7 +44,6 @@ lunr._tokenizer = lunr.tokenizer;
 lunr.tokenizer = (obj, method) => {
   if (!arguments.length || !obj) return [];
   if (containChinese(obj)) {
-    //TODO: validate method name
     const availableMethods = [
       'cut',
       'cutAll',
